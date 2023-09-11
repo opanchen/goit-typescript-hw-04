@@ -2,22 +2,22 @@ import React, { useEffect, useRef } from "react";
 
 // Опишіть Props
 type Props = {
-  children: React.ReactNode,
-  onContentEndVisible: () => void
-}
+  children: React.ReactNode;
+  onContentEndVisible: () => void;
+};
 
-type ObserverOptions = Pick<IntersectionObserver, 'root' | "rootMargin"> & {
-  threshold: number
-} // повністю використати клас IntersectionObserver для типізації не вдається, бо він містить властивість thresholds: number[], а обʼєкт налаштувань очікує властивість threshold: number (тобто елемент масиву), тому використовуємо збірний тип...
+type ObserverOptions = Pick<IntersectionObserver, "root" | "rootMargin"> & {
+  threshold: number;
+}; // повністю використати клас IntersectionObserver для типізації не вдається, бо він містить властивість thresholds: number[], а обʼєкт налаштувань очікує властивість threshold: number (тобто елемент масиву), тому використовуємо збірний тип...
 
-export function Observer ({ children, onContentEndVisible }: Props) {
+export function Observer({ children, onContentEndVisible }: Props) {
   // Вкажіть правильний тип для useRef зверніть увагу, в який DOM елемент ми його передаємо
   const endContentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // Вкажіть правильний тип для options, підказка, клас також можна вказувати як тип
-    const options : ObserverOptions= {
-      rootMargin: '0px',
+    const options: ObserverOptions = {
+      rootMargin: "0px",
       threshold: 1.0,
       root: null,
     };
