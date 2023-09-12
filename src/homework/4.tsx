@@ -11,10 +11,9 @@ type SelectedMenu = {
 
 type MenuSelected = {
   selectedMenu: SelectedMenu;
-  setSelectedMenu: React.Dispatch<React.SetStateAction<SelectedMenu>>;
 };
 
-const MenuSelectedContext = createContext<Pick<MenuSelected, "selectedMenu">>({
+const MenuSelectedContext = createContext<MenuSelected>({
   selectedMenu: {},
 });
 
